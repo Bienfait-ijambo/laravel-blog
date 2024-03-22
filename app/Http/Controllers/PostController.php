@@ -22,10 +22,10 @@ class PostController extends Controller
     		
     		$posts=$data->where('title','like','%'.$query.'%');
 
-    		return response($posts->paginate(6),200);
+    		return response($posts->paginate(3),200);
     	}
 
-    	return response($data->paginate(6),200);
+    	return response($data->paginate(3),200);
     }
 
     function store(Request $request)

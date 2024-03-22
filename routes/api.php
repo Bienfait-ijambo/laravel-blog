@@ -27,12 +27,11 @@ use Illuminate\Support\Facades\Route;
 Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);
 
-
-
+Route::get('posts',[PostController::class,'getPosts']);	
 //protected
 Route::group(['middleware'=>['auth:sanctum']],function(){
 
-	Route::get('posts',[PostController::class,'getPosts']);
+	
 	Route::post('posts',[PostController::class,'store']);
 	Route::put('posts/{id}',[PostController::class,'update']);
 	Route::delete('posts/{id}',[PostController::class,'destroy']);
