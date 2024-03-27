@@ -12,6 +12,11 @@ use url;
 class PostController extends Controller
 {
     
+   function countPost(Request $request)
+   {
+    // HOMEWORK
+   }
+
     function getPosts(Request $request)
     {
     	$query=$request->get('query');
@@ -90,14 +95,14 @@ class PostController extends Controller
    			 Storage::disk('public')
             ->put('images/' . $input['file'], file_get_contents($image));
 
-             $imageURL= url('/').'/storage/images/'.$input['file'];
+         $imageURL= url('/').'/storage/images/'.$input['file'];
 
 
-             Post::where('id',$request->postId)
-             ->update([
-             	'image'=>$imageURL
-             ]);
-             return response(['message'=>'post image uploaded !'],200);
+         Post::where('id',$request->postId)
+         ->update([
+         	'image'=>$imageURL
+         ]);
+         return response(['message'=>'post image uploaded !'],200);
 
 
    		}
@@ -105,3 +110,4 @@ class PostController extends Controller
    
 
 }
+ 
